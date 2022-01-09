@@ -4,9 +4,9 @@
 
     <div class="row">
       <div class="col-md-8">
-        <div class="detail">
+        <div class="detail" v-if="selectedEntry">
           <EntryDetail :entry="selectedEntry"></EntryDetail>
-          <div v-if="selectedEntry" class="ui buttons container">
+          <div  class="ui buttons container">
             <button class="teal ui button" @click="toggleUpdate">Update</button>
             <button class="orange ui button" @click="deleteEntry(selectedEntry.id)">Delete</button>
           </div>
@@ -16,13 +16,13 @@
         <div v-if="update" class="container update">
           <div class="mb-3">
             <label class="form-label">Headline</label>
-            <input type="text" class="form-control" :placeholder="selectedEntry.headline">
+            <input type="text" class="form-control" :placeholder="selectedEntry.headline" id="updateHeadline">
           </div>
           <div class="mb-3">
             <label  class="form-label">Entry</label>
-            <textarea class="form-control" rows="4" :placeholder="selectedEntry.entry"></textarea>
+            <textarea class="form-control" rows="4" :placeholder="selectedEntry.entry" id="updateEntry"></textarea>
           </div>
-          <button class="ui olive button">Confirm</button>
+          <button class="ui olive button" @click="updateEntry(selectedEntry.id)">Confirm</button>
         </div>
 
       </div>
@@ -64,7 +64,7 @@ export default {
     }
   },
   methods: {
-    fetchImages() {
+    fetchEntries() {
       axios.get(`${ROOT_URL}/entries`)
       .then(
           response => {
@@ -75,10 +75,20 @@ export default {
     deleteEntry(id) {
       return axios.delete(`${ROOT_URL}/entries/` + id)
           .then(
-              this.fetchImages
-          ).then(
+              this.fetchEntries,
               this.selectedEntry = null
           )
+
+    },
+    updateEntry(id){
+      const headline = document.getElementById("updateHeadline").value;
+      const entry = document.getElementById("updateEntry").value;
+
+      axios.put(`${ROOT_URL}/entries/` + id, {
+        headline, entry
+      }).then(
+          this.fetchEntries,
+      )
 
     },
     onEntrySelect(entry) {
@@ -89,7 +99,7 @@ export default {
     }
   },
   created() {
-    this.fetchImages()
+    this.fetchEntries()
   },
 
 }
