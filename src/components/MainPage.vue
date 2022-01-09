@@ -4,14 +4,26 @@
 
     <div class="row">
       <div class="col-md-8">
+        <div class="detail">
+          <EntryDetail :entry="selectedEntry"></EntryDetail>
+          <div v-if="selectedEntry" class="ui buttons container">
+            <button class="teal ui button" @click="toggleUpdate">Update</button>
+            <button class="orange ui button" @click="deleteEntry(selectedEntry.id)">Delete</button>
+          </div>
 
-        <EntryDetail :entry="selectedEntry"></EntryDetail>
-        <div v-if="selectedEntry" class="ui buttons">
-          <button class="teal ui button" @click="toggleUpdate">Update</button>
-          <button class="orange ui button" @click="deleteEntry(selectedEntry.id)">Delete</button>
         </div>
-        <input v-if="update" type="text" :value="selectedEntry.entry"/>
 
+        <div v-if="update" class="container update">
+          <div class="mb-3">
+            <label class="form-label">Headline</label>
+            <input type="text" class="form-control" :placeholder="selectedEntry.headline">
+          </div>
+          <div class="mb-3">
+            <label  class="form-label">Entry</label>
+            <textarea class="form-control" rows="4" :placeholder="selectedEntry.entry"></textarea>
+          </div>
+          <button class="ui olive button">Confirm</button>
+        </div>
 
       </div>
 
@@ -85,5 +97,26 @@ export default {
 
 <style scoped>
 
+.update{
+
+  padding: 10px;
+  border: 1px solid dimgray;
+  border-radius: 4px;
+
+}
+
+.buttons{
+
+  padding: 10px;
+
+}
+
+.detail{
+
+  padding: 10px;
+  border: 1px solid dimgray;
+  border-radius: 4px;
+
+}
 
 </style>

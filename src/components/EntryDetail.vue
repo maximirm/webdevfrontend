@@ -28,10 +28,10 @@ export default {
 
 <style scoped>
 
-.details{
+/*.details{
   padding: 10px;
   border: 1px solid dimgray;
   border-radius: 4px;
-}
+}*/
 
 </style>
