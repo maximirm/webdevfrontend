@@ -4,7 +4,7 @@
       <input class="form-control" id="myInput" type="text" placeholder="Search.." @input="onInput">
       <br>
       <ul class="list-group" id="myList">
-        <EntryListItem
+        <EntryListItem class="item"
             v-for="entry in filteredArray"
             :key="entry.id"
             :entryHead="entry.headline"
@@ -71,6 +71,19 @@ export default {
 
 <style scoped>
 
+.form-control{
+  padding: 10px;
+  border: 1px solid dimgray;
+  border-radius: 15px;
+  background-color: #eee1cf;
+}
+
+.item{
+  padding: 10px;
+  border: 1px solid dimgray;
+  border-radius: 15px;
+  background-color: #d2bc8f;
+}
 
 </style>
 

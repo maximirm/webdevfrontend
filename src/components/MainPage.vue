@@ -1,7 +1,4 @@
 <template>
-
-
-
     <div class="row">
       <div class="col-md-8">
         <div class="detail" v-if="selectedEntry">
@@ -10,7 +7,6 @@
             <button class="teal ui button" @click="toggleUpdate">Update</button>
             <button class="orange ui button" @click="deleteEntry(selectedEntry.id)">Delete</button>
           </div>
-
         </div>
 
         <div v-if="update" class="container update">
@@ -23,7 +19,7 @@
             <label  class="form-label">Entry</label>
             <textarea class="form-control" rows="4" id="updateEntry" :placeholder="selectedEntry.entry" ></textarea>
           </div>
-          <button class="ui olive button" @click="updateEntry(selectedEntry.id)">Confirm</button>
+          <button class="teal ui button" @click="updateEntry(selectedEntry.id)">Confirm</button>
         </div>
 
       </div>
@@ -122,7 +118,7 @@ export default {
   padding: 10px;
   border: 1px solid dimgray;
   border-radius: 15px;
-  background-color: aliceblue;
+  background-color: #d2bc8f;
 
 }
 
@@ -134,6 +130,13 @@ export default {
   padding: 10px;
   border: 1px solid dimgray;
   border-radius: 15px;
-  background-color: aliceblue;
+  background-color: #d2bc8f;
+}
+
+.form-control{
+  padding: 10px;
+  border: 1px solid dimgray;
+  border-radius: 15px;
+  background-color: #eee1cf;
 }
 </style>

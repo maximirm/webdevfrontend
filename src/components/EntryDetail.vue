@@ -2,6 +2,7 @@
   <div v-if="entry" >
     <div class="details">
       <h2>{{entry.headline}}</h2>
+
       <h5>{{entry.creationDate}}</h5>
       <p>{{entry.entry}}</p>
 
@@ -25,8 +26,3 @@ export default {
 }
 
 </script>
-
-<style scoped>
-
-
-</style>

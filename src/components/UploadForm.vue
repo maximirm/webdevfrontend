@@ -29,10 +29,10 @@ export default {
   methods: {
 
     postEntry() {
-      const head = document.getElementById("inputHeadline").value;
-      const content = document.getElementById("inputEntry").value;
+      const headline = document.getElementById("inputHeadline").value;
+      const entry = document.getElementById("inputEntry").value;
       axios.post(`${ROOT_URL}/entries`, {
-        head, content
+        headline, entry
       })
           .then(
               router.push("mainPage")
@@ -53,6 +53,7 @@ export default {
   padding: 10px;
   border: 1px solid dimgray;
   border-radius: 4px;
+  background-color: #d2bc8f;
 
 }
 

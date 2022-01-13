@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div :style="myStyle">
     <AppHeader/>
     <div class="=ui container">
       <router-view/>
@@ -15,6 +15,15 @@ export default {
   name: 'App',
   components: {
     AppHeader
+  },
+  data() {
+    return {
+      myStyle:{
+       backgroundColor:"#bdc6a0",
+        minHeight: "100%"
+      }
+
+    }
   }
 };
 
@@ -23,8 +32,7 @@ export default {
 
 <style scoped>
 
-body {
-
+body{
 }
 
 </style>

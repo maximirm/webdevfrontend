@@ -1,7 +1,7 @@
 <template>
   <div class="ui input">
-    <input id="name" type="text" placeholder="Name">
-    <input id="password" type="password" placeholder="Password">
+    <input class="" id="name" type="text" placeholder="Name">
+    <input class="" id="password" type="password" placeholder="Password">
     <button class="ui button" @click="validate">Login</button>
 
   </div>
@@ -34,4 +34,15 @@ export default {
 
 
 
-<style></style>
+<style scoped>
+
+.form-control{
+
+  padding: 10px;
+  border: 1px solid dimgray;
+  border-radius: 15px;
+  background-color: #eee1cf;
+
+}
+
+</style>

@@ -42,7 +42,7 @@ li {
 }
 
 li:hover{
-  background-color: #eee;
+  background-color: #eee1cf;
 }
 </style>
 
