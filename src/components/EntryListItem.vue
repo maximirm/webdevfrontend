@@ -1,8 +1,8 @@
 <template>
   <li class="list-group-item d-flex justify-content-between align-items-center"
   @click="onEntrySelect">
-    {{entry.headline}}
-    <span class="badge bg-secondary">{{entry.creationDate}}</span>
+    {{createHeadline}}
+    <span class="badge bg-secondary">{{createCreationDate}}</span>
 
 
 
@@ -15,15 +15,23 @@
 
 export default {
   name: 'EntryListItem',
-  props: ['entry'],
+  props: ['entryHead', 'entryDate','entry'],
+  computed: {
+    createHeadline() {
+      return this.entryHead
+    },
+    createCreationDate() {
+      return this.entryDate
+    }
+  },
   methods: {
     onEntrySelect() {
       this.$emit('entrySelect', this.entry);
     }
-
-  }
-
+  },
 }
+
+
 
 </script>
 

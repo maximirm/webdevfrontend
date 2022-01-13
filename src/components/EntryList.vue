@@ -1,25 +1,49 @@
 <template>
+  <div>
+    <div class="container">
+      <input class="form-control" id="myInput" type="text" placeholder="Search.." @input="onInput">
+      <br>
+      <ul class="list-group" id="myList">
+        <EntryListItem
+            v-for="entry in filteredArray"
+            :key="entry.id"
+            :entryHead="entry.headline"
+            :entryDate="entry.creationDate"
+            :entry="entry"
+            @entrySelect="onEntrySelect">
 
-  <ul class="list-group">
-    <EntryListItem
-    v-for="entry in entries"
-    :key="entry.id"
-    :entry="entry"
-    @entrySelect="onEntrySelect">
+        </EntryListItem>
+      </ul>
+    </div>
 
-    </EntryListItem>
+  </div>
 
-  </ul>
+
 
 </template>
 
 <script>
 
-
 import EntryListItem from "./EntryListItem";
+
 
 export default {
   name: 'EntryList',
+  data() {
+    return {
+      input: ''
+    }
+  },
+  computed: {
+    filteredArray() {
+      return this.entries.filter(entry => {
+        if (entry.headline !== null && entry.creationDate !== null) {
+
+          return (entry.headline.toLowerCase().includes(this.input)) || (entry.creationDate.includes(this.input));
+        }
+      })
+    }
+  },
   components: {
     EntryListItem
   },
@@ -29,12 +53,24 @@ export default {
   methods: {
     onEntrySelect(entry) {
       this.$emit('entrySelect', entry);
+    },
+    onInput(event) {
+      this.input = event.target.value.toLowerCase();
     }
 
-  }
+
+
+  },
+
 
 
 }
 
+
 </script>
+
+<style scoped>
+
+
+</style>
 

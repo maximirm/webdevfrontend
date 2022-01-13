@@ -41,5 +41,8 @@ export default {
   display: flex;
   flex-direction: row;
 }
+.ui{
+  font-size: 20px;
+}
 
 </style>

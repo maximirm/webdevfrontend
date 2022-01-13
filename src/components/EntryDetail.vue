@@ -28,10 +28,5 @@ export default {
 
 <style scoped>
 
-/*.details{
-  padding: 10px;
-  border: 1px solid dimgray;
-  border-radius: 4px;
-}*/
 
 </style>
