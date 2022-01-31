@@ -43,6 +43,7 @@ export default {
 }
 .ui{
   font-size: 20px;
+  color: white;
 }
 
 </style>

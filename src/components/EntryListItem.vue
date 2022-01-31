@@ -3,16 +3,10 @@
   @click="onEntrySelect">
     {{createHeadline}}
     <span class="badge bg-secondary">{{createCreationDate}}</span>
-
-
-
   </li>
-
 </template>
 
-
 <script>
-
 export default {
   name: 'EntryListItem',
   props: ['entryHead', 'entryDate','entry'],
@@ -30,9 +24,6 @@ export default {
     }
   },
 }
-
-
-
 </script>
 
 <style scoped>
@@ -40,9 +31,8 @@ li {
   display: flex;
   cursor: pointer;
 }
-
 li:hover{
-  background-color: #eee1cf;
+  background-color: #BEAD89;
 }
 </style>
 

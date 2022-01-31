@@ -11,21 +11,14 @@
             :entryDate="entry.creationDate"
             :entry="entry"
             @entrySelect="onEntrySelect">
-
         </EntryListItem>
       </ul>
     </div>
-
   </div>
-
-
-
 </template>
 
 <script>
-
 import EntryListItem from "./EntryListItem";
-
 
 export default {
   name: 'EntryList',
@@ -38,7 +31,6 @@ export default {
     filteredArray() {
       return this.entries.filter(entry => {
         if (entry.headline !== null && entry.creationDate !== null) {
-
           return (entry.headline.toLowerCase().includes(this.input)) || (entry.creationDate.includes(this.input));
         }
       })
@@ -57,13 +49,7 @@ export default {
     onInput(event) {
       this.input = event.target.value.toLowerCase();
     }
-
-
-
   },
-
-
-
 }
 
 
@@ -81,8 +67,8 @@ export default {
 .item{
   padding: 10px;
   border: 1px solid dimgray;
-  border-radius: 15px;
-  background-color: #d2bc8f;
+  border-radius: 5px;
+  background-color: #D7CAAA;
 }
 
 </style>

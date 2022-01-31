@@ -1,12 +1,10 @@
 <template>
   <div class="ui input">
-    <input class="" id="name" type="text" placeholder="Name">
-    <input class="" id="password" type="password" placeholder="Password">
+    <input class="field" id="name" type="text" placeholder="Name">
+    <input class="field" id="password" type="password" placeholder="Password">
     <button class="ui button" @click="validate">Login</button>
-
   </div>
 </template>
-
 
 <script>
 import {mapActions, mapGetters} from 'vuex';
@@ -29,20 +27,22 @@ export default {
     }
   }
 }
-
 </script>
-
-
 
 <style scoped>
 
-.form-control{
-
+.input{
   padding: 10px;
   border: 1px solid dimgray;
   border-radius: 15px;
   background-color: #eee1cf;
-
 }
 
+.button{
+  border: 1px solid dimgray;
+  border-radius: 15px;
+}
+
+
 </style>
+

@@ -4,11 +4,10 @@
         <div class="detail" v-if="selectedEntry">
           <EntryDetail :entry="selectedEntry" ></EntryDetail>
           <div  class="ui buttons container">
-            <button class="teal ui button" @click="toggleUpdate">Update</button>
+            <button class="brown ui button" @click="toggleUpdate">Update</button>
             <button class="orange ui button" @click="deleteEntry(selectedEntry.id)">Delete</button>
           </div>
         </div>
-
         <div v-if="update" class="container update">
           <div class="mb-3">
             <h3>Update</h3>
@@ -19,21 +18,17 @@
             <label  class="form-label">Entry</label>
             <textarea class="form-control" rows="4" id="updateEntry" :placeholder="selectedEntry.entry" ></textarea>
           </div>
-          <button class="teal ui button" @click="updateEntry(selectedEntry.id)">Confirm</button>
+          <button class="brown ui button" @click="updateEntry(selectedEntry.id)">Confirm</button>
         </div>
-
       </div>
       <div class="col-md-4">
-
         <EntryList :entries="entries"
                    @entrySelect="onEntrySelect"></EntryList>
       </div>
     </div>
-
-
 </template>
-<script>
 
+<script>
 import EntryDetail from "./EntryDetail";
 import EntryList from "./EntryList";
 import axios from "axios";
@@ -55,7 +50,6 @@ export default {
 
     }
   },
-
   methods: {
     fetchEntries() {
       axios.get(`${ROOT_URL}/entries`)
@@ -65,18 +59,16 @@ export default {
           }
       );
     },
-
     deleteEntry(id) {
       if(window.confirm("are you sure about deleting?")) {
         this.removeUpdate()
         this.removeSelected()
         return axios.delete(`${ROOT_URL}/entries/` + id)
             .then(
-                this.fetchEntries,
+                this.fetchEntries
             )
       }
     },
-
     updateEntry(id){
       if (window.confirm("are you sure about updating?")) {
 
@@ -105,21 +97,18 @@ export default {
       if(this.update) this.update = false;
     }
   },
-
   created() {
     this.fetchEntries()
   },
 }
 </script>
 
-
 <style scoped>
 .update{
   padding: 10px;
   border: 1px solid dimgray;
   border-radius: 15px;
-  background-color: #d2bc8f;
-
+  background-color: #D7CAAA;
 }
 
 .buttons{
@@ -130,7 +119,7 @@ export default {
   padding: 10px;
   border: 1px solid dimgray;
   border-radius: 15px;
-  background-color: #d2bc8f;
+  background-color: #D7CAAA;
 }
 
 .form-control{
