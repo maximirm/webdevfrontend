@@ -42,8 +42,8 @@ export default {
   flex-direction: row;
 }
 .ui{
-  font-size: 20px;
-  color: white;
+  font-size: 30px;
+  font-style: italic;
 }
 
 </style>

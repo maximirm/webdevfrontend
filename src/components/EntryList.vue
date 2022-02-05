@@ -71,5 +71,12 @@ export default {
   background-color: #D7CAAA;
 }
 
+.list-group {
+  max-height: 300px;
+  margin-bottom: 10px;
+  overflow:scroll;
+  -webkit-overflow-scrolling: touch;
+}
+
 </style>
 
