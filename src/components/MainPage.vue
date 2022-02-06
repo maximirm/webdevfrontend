@@ -18,7 +18,7 @@
             <label  class="form-label">Entry</label>
             <textarea class="form-control" rows="4" id="updateEntry" :placeholder="selectedEntry.entry" ></textarea>
           </div>
-          <button class="brown ui button" @click="updateEntry(selectedEntry.id)">Confirm</button>
+          <button class="brown ui button" @click="patchEntry(selectedEntry.id)">Confirm</button>
         </div>
       </div>
       <div class="col-md-4">
@@ -69,7 +69,7 @@ export default {
             )
       }
     },
-    updateEntry(id){
+    patchEntry(id){
       if (window.confirm("are you sure about updating?")) {
 
         const headline = document.getElementById("updateHeadline").value;
@@ -77,7 +77,7 @@ export default {
 
         this.removeUpdate()
         this.removeSelected()
-        axios.put(`${ROOT_URL}/entries/` + id, {
+        axios.patch(`${ROOT_URL}/entries/` + id, {
           headline, entry
         }).then(
             this.fetchEntries
